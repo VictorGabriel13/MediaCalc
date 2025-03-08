@@ -1,4 +1,7 @@
 @media screen and (min-width: 360px) and (max-width: 720px) {
+    body {
+        font-family: Arial;
+    }
     .calc-box {
     background-color: #686a6b;
     width: 80%;
