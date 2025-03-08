@@ -142,7 +142,7 @@ section {
     <div class="calc-box">
         <header>
             <h1>Média Anual</h1>
-            <p>Cálculo da média ponterada das notas de cada Bimestres.</p>
+            <p>Cálculo da média ponderada das notas de cada Bimestres.</p>
         </header>
         <div class="container">
             <span>1<strong style="font-size: 25px;">º</strong></span>
@@ -176,8 +176,8 @@ section {
     let num3 = parseFloat(TerceiroBimestre) || 0;
     let num4 = parseFloat(QuartoBimestre) || 0;
 
-    // Calcular média
-    let media = (num1 + num2 + num3 + num4) / 4;
+    // Calcular média ponderada dos alunos
+    let media = (num1 * 2 + num2 * 2 + num3 * 3 + num4 * 3) / 10;
 
     // Se a media calculada for menor que 6, Você foi Reprovado.
     if(media <6) {
