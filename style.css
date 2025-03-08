@@ -1,0 +1,33 @@
+@media screen and (min-width: 360px) and (max-width: 720px) {
+    .calc-box {
+    background-color: #686a6b;
+    width: 80%;
+    padding: 20px;
+}
+.container {
+    gap: 10px;
+}
+input {
+    width: 100%;
+    margin-left: 2px;
+}
+section {
+    width: 80%;
+}
+#Suap-login {
+    white-space: nowrap;
+    width: 50%;
+    top: 5%;
+    left: 45%;
+}
+}
+@media screen and (min-width:720px) and (max-width: 1024px) {
+    .calc-box {
+    background-color: #686a6b;
+    width: 50%;
+    padding: 20px;
+}
+section {
+    width: 50%;
+}
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaCalc</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: rgb(150, 148, 148);
+            font-family: Arial;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+        .calc-box {
+            background-color: #686a6b;
+            width: 25%;
+            padding: 20px;
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.203);
+        }
+        header  h1{
+            font-size: 25px;
+            color: white;
+        }
+        header p {
+            color: #2f2e2e;
+            margin-top: -10px;
+            font-size: 16px;
+        }
+        input {
+            width: 40%;
+            background-color: #2f2e2e;
+            border: 0;
+            /*border: 2px solid #abaaaa; ainda n sei */
+            outline: none;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px;
+            margin-top: 30px;
+            box-shadow: 5px 5px 10px #2f2e2e;
+            color: white;
+            font-size: 17px;
+        }
+        input::placeholder {
+            font-size: 17px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        input:focus {
+            border: 2px solid #bab7b7; 
+        }
+        section {
+            text-align: center;
+            position: absolute;
+            padding: 20px;
+            top: 83%;
+            color: #686a6b;
+            width: 25%;
+            border-radius: 20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2f2e2e;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.311);
+        }
+        #alert {
+            font-size: 17px;
+            font-weight: 580;
+            margin-top: -15px;
+        }
+        span {
+            position: absolute;
+            color: #2f2e2e;
+            font-weight: 560;
+            font-size: 20px;
+            left: 10%;
+            transform: translate(-50%);
+        }
+        #Suap-login {
+            background-color: #35cd81dc;
+            border: 0;
+            width: 12%;
+            position: absolute;
+            left: 85%;
+            font-size: 17px;
+            padding: 10px;
+            border-radius: 15px;
+            color: white;
+            font-weight: 700;
+        }
+        #Suap-login:hover {
+            background-color: #7fe4b1dc;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="Suap-login">Login com o Suap</button>
+    <div class="calc-box">
+        <header>
+            <h1>Média Anual</h1>
+            <p>Cálculo da média ponterada das notas de cada Bimestres.</p>
+        </header>
+        <div class="container">
+            <span>1<strong style="font-size: 25px;">º</strong></span>
+            <input id="PrimeiroBi" oninput="Bimestres()" autocomplete="off"  placeholder="0 a 10" type="number">
+            <span style="left: 56%;">2<strong style="font-size: 25px;">º</strong></span>
+            <input id="SegundoBi" oninput="Bimestres()" autocomplete="off"  placeholder="0 a 10" type="number">
+        </div>
+        <div class="container">
+            <span>3<strong style="font-size: 25px;">º</strong></span>
+            <input autocomplete="off" id="TerceiroBi" oninput="Bimestres()" placeholder=" 0 a 10" type="number">
+            <span style="left: 56%;">4<strong style="font-size: 25px;">º</strong></span>
+            <input autocomplete="off" id="QuartoBi"  oninput="Bimestres()" placeholder="0 a 10" type="number">
+        </div>
+    </div>
+    <section>
+        <h1 id="Aprovado">Reprovado</h1>
+        <p id="resultado">Nota Final: 0</p>
+    </section>
+    <script>
+        function Bimestres() {
+    let PrimeiroBimestre = document.getElementById("PrimeiroBi").value.trim();
+    let SegundoBimestre = document.getElementById("SegundoBi").value.trim();
+    let TerceiroBimestre = document.getElementById("TerceiroBi").value.trim();
+    let QuartoBimestre = document.getElementById("QuartoBi").value.trim();
+    let MessageTeste = document.getElementById("resultado");
+    let MessageReprovado = document.getElementById("Aprovado")
+
+    // Converter valores para número corretamente
+    let num1 = parseFloat(PrimeiroBimestre) || 0;
+    let num2 = parseFloat(SegundoBimestre) || 0;
+    let num3 = parseFloat(TerceiroBimestre) || 0;
+    let num4 = parseFloat(QuartoBimestre) || 0;
+
+    // Calcular média
+    let media = (num1 + num2 + num3 + num4) / 4;
+
+    // Se a media calculada for menor que 6, Você foi Reprovado.
+    if(media <6) {
+        MessageReprovado.innerHTML ='Reprovado'
+    }
+    else {
+        MessageReprovado.innerHTML = 'Aprovado'
+    }
+
+    // Exibir a média formatada
+    MessageTeste.innerHTML = `Nota Final: <strong>${media.toFixed(1)}</strong>`;
+}
+    </script>
+</body>
+</html>
