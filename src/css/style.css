@@ -101,6 +101,7 @@ span {
     border-radius: 5px;
     background-color: #2f2e2e;
     cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.142);
 }
 
 /* Estilo do botão que exibe a opção selecionada */
@@ -116,6 +117,7 @@ span {
 .options-list {
     position: absolute;
     top: 100%;
+    margin-top: 5px;
     left: 0;
     width: 100%;
     max-height: 150px;
@@ -124,6 +126,7 @@ span {
     display: none;
     z-index: 1;
     border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.142);
 }
 
 /* Estilo de cada opção */
@@ -135,7 +138,7 @@ span {
 }
 
 .option:hover {
-    background-color: #898888;
+    background-color: #CCC;
     color: white;
 }
 
