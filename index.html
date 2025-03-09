@@ -4,142 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediaCalc</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: rgb(150, 148, 148);
-            font-family: Arial;
-            height: 100vh;
-        }
-        .container {
-            display: flex;
-            flex-direction: row;
-            gap: 5px;
-        }
-        .calc-box {
-            background-color: #686a6b;
-            width: 25%;
-            padding: 20px;
-            border-radius: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.203);
-        }
-        header  h1{
-            font-size: 25px;
-            color: white;
-        }
-        header p {
-            color: #2f2e2e;
-            margin-top: -10px;
-            font-size: 16px;
-        }
-        input {
-            width: 40%;
-            background-color: #2f2e2e;
-            border: 0;
-            /*border: 2px solid #abaaaa; ainda n sei */
-            outline: none;
-            border-radius: 15px;
-            padding: 10px;
-            margin: 10px;
-            margin-top: 30px;
-            box-shadow: 5px 5px 10px #2f2e2e;
-            color: white;
-            font-size: 17px;
-        }
-        input::placeholder {
-            font-size: 17px;
-            font-weight: 400;
-            cursor: pointer;
-        }
-        input:focus {
-            border: 2px solid #bab7b7; 
-        }
-        section {
-            text-align: center;
-            position: absolute;
-            padding: 20px;
-            top: 83%;
-            color: #686a6b;
-            width: 25%;
-            border-radius: 20px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #2f2e2e;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.311);
-        }
-        #alert {
-            font-size: 17px;
-            font-weight: 580;
-            margin-top: -15px;
-        }
-        span {
-            position: absolute;
-            color: #2f2e2e;
-            font-weight: 560;
-            font-size: 20px;
-            left: 10%;
-            transform: translate(-50%);
-        }
-        #Suap-login {
-            background-color: #35cd81dc;
-            border: 0;
-            width: 12%;
-            position: absolute;
-            left: 85%;
-            font-size: 17px;
-            padding: 10px;
-            border-radius: 15px;
-            color: white;
-            font-weight: 700;
-        }
-        #Suap-login:hover {
-            background-color: #7fe4b1dc;
-            cursor: pointer;
-        }
-        @media screen and (min-width: 360px) and (max-width: 720px) {
-    body {
-        font-family: Arial;
-    }
-    .calc-box {
-    background-color: #686a6b;
-    width: 80%;
-    padding: 20px;
-}
-.container {
-    gap: 10px;
-}
-input {
-    width: 100%;
-    margin-left: 2px;
-}
-section {
-    width: 80%;
-}
-#Suap-login {
-    white-space: nowrap;
-    width: 50%;
-    top: 5%;
-    left: 45%;
-}
-}
-@media screen and (min-width:720px) and (max-width: 1024px) {
-    .calc-box {
-    background-color: #686a6b;
-    width: 50%;
-    padding: 20px;
-}
-section {
-    width: 50%;
-}
-}
-    </style>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/responsividade.css">
 </head>
 <body>
-    <button type="button" id="Suap-login">Login com o Suap</button>
+    <button type="submit" onclick="login()" id="Suap-login">Login com o Suap</button>
     <div class="calc-box">
         <header>
             <h1>Média Anual</h1>
@@ -162,35 +31,42 @@ section {
         <h1 id="Aprovado">Reprovado</h1>
         <p id="resultado">Nota Final: 0</p>
     </section>
+    <script src="src/scripts/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="src/scripts/js.cookie.js"></script>
+	<script src="src/scripts/settings.js"></script>
+  	<script src="src/scripts/client.js"></script>
     <script>
-        function Bimestres() {
-    let PrimeiroBimestre = document.getElementById("PrimeiroBi").value.trim();
-    let SegundoBimestre = document.getElementById("SegundoBi").value.trim();
-    let TerceiroBimestre = document.getElementById("TerceiroBi").value.trim();
-    let QuartoBimestre = document.getElementById("QuartoBi").value.trim();
-    let MessageTeste = document.getElementById("resultado");
-    let MessageReprovado = document.getElementById("Aprovado")
+        var suap = new SuapClient(SUAP_URL, CLIENT_ID, REDIRECT_URI, SCOPE);
+      suap.init();
+      $(document).ready(function () {
+          $("#suap-login-button").attr('href', suap.getLoginURL());
+          if (suap.isAuthenticated()) {
+              $('.is-authenticated').removeClass("is-hidden");
+              $('#token').text(suap.getToken().getValue());
+              $('#validade_token').text(suap.getToken().getExpirationTime());
+              $("#escopos_autorizados").text(suap.getToken().getScope());
+              $("#escopos").val(suap.getToken().getScope());
+          } else {
+              $('.is-anonymous').removeClass("is-hidden");
+          }
+      });
+      $("#suap-logout-button").click(function(){
+          suap.logout();
+      });
+      $("#suap-resource-button").click(function(){
+          if (suap.isAuthenticated()) {
+              var scope = $("#escopos").val();
+              var callback = function (response) {
+                  $("#response").text(JSON.stringify(response, null, 4));
+              };
+              suap.getResource(scope, callback);
+          }
+      });
 
-    // Converter valores para número corretamente
-    let num1 = parseFloat(PrimeiroBimestre) || 0;
-    let num2 = parseFloat(SegundoBimestre) || 0;
-    let num3 = parseFloat(TerceiroBimestre) || 0;
-    let num4 = parseFloat(QuartoBimestre) || 0;
-
-    // Calcular média ponderada dos alunos
-    let media = (num1 * 2 + num2 * 2 + num3 * 3 + num4 * 3) / 10;
-
-    // Se a media calculada for menor que 6, Você foi Reprovado.
-    if(media <6) {
-        MessageReprovado.innerHTML ='Reprovado'
-    }
-    else {
-        MessageReprovado.innerHTML = 'Aprovado'
-    }
-
-    // Exibir a média formatada
-    MessageTeste.innerHTML = `Nota Final: <strong>${media.toFixed(1)}</strong>`;
-}
+      function login() {
+            window.location.href = suap.getLoginURL();
+      }
     </script>
 </body>
 </html>

@@ -1,0 +1,94 @@
+body {
+    background-color: rgb(150, 148, 148);
+    font-family: Arial;
+    height: 100vh;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.calc-box {
+    background-color: #686a6b;
+    width: 25%;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.203);
+}
+header  h1{
+    font-size: 25px;
+    color: white;
+}
+header p {
+    color: #2f2e2e;
+    margin-top: -10px;
+    font-size: 16px;
+}
+input {
+    width: 40%;
+    background-color: #2f2e2e;
+    border: 0;
+    /*border: 2px solid #abaaaa; ainda n sei */
+    outline: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 30px;
+    box-shadow: 5px 5px 10px #2f2e2e;
+    color: white;
+    font-size: 17px;
+}
+input::placeholder {
+    font-size: 17px;
+    font-weight: 400;
+    cursor: pointer;
+}
+input:focus {
+    border: 2px solid #bab7b7; 
+}
+section {
+    text-align: center;
+    position: absolute;
+    padding: 20px;
+    top: 83%;
+    color: #686a6b;
+    width: 25%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2f2e2e;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.311);
+}
+#alert {
+    font-size: 17px;
+    font-weight: 580;
+    margin-top: -15px;
+}
+span {
+    position: absolute;
+    color: #2f2e2e;
+    font-weight: 560;
+    font-size: 20px;
+    left: 10%;
+    transform: translate(-50%);
+}
+#Suap-login {
+    background-color: #35cd81dc;
+    border: 0;
+    width: 12%;
+    position: absolute;
+    left: 85%;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 700;
+}
+#Suap-login:hover {
+    background-color: #7fe4b1dc;
+    cursor: pointer;
+}
