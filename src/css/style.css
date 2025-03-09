@@ -1,7 +1,8 @@
-body {
+body.theme-dark {
     background-color: rgb(150, 148, 148);
     font-family: Arial;
     height: 100vh;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 .container {
     display: flex;
@@ -91,4 +92,54 @@ span {
 #Suap-login:hover {
     background-color: #7fe4b1dc;
     cursor: pointer;
+}
+
+.custom-select {
+    position: relative;
+    width: 10%;
+    font-family: Arial;
+    border-radius: 5px;
+    background-color: #2f2e2e;
+    cursor: pointer;
+}
+
+/* Estilo do botão que exibe a opção selecionada */
+.selected-option {
+    padding: 10px;
+    background-color: #2f2e2e;
+    color: #686a6b;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Estilo da lista de opções */
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #2f2e2e;
+    display: none;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Estilo de cada opção */
+.option {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #2f2e2e;
+    color: #898888;
+}
+
+.option:hover {
+    background-color: #898888;
+    color: white;
+}
+
+/* Estilo quando o dropdown está aberto */
+.custom-select.open .options-list {
+    display: block;
 }

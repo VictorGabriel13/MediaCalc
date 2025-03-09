@@ -6,8 +6,16 @@
     <title>MediaCalc</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/responsividade.css">
+    <link rel="stylesheet" href="src/css/theme-light.css">
 </head>
-<body>
+<body class="theme-dark">
+    <div class="custom-select" id="theme-selector">
+        <div class="selected-option">Selecione o Tema</div>
+        <div class="options-list">
+            <div class="option" data-value="dark">Tema Dark</div>
+            <div class="option" data-value="light">Tema Light</div>
+        </div>
+    </div>    
     <button type="submit" onclick="login()" id="Suap-login">Login com o Suap</button>
     <div class="calc-box">
         <header>
@@ -67,6 +75,7 @@
       function login() {
             window.location.href = suap.getLoginURL();
       }
+      /* Para Abrir um servidor local use python -m http.server 8888 */
     </script>
 </body>
 </html>

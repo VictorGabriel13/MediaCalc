@@ -1,0 +1,91 @@
+/* Tema Claro */
+body.theme-light {
+    background-color: #f5f5f5;
+    font-family: Arial;
+    color: #2f2e2e;
+    height: 100vh;
+    transition: 1s ease;
+}
+
+.calc-box.theme-light {
+    background-color: #CCC;
+    color: black;
+}
+
+header h1.theme-light {
+    color: #2f2e2e;
+}
+
+header p.theme-light {
+    color: #2f2e2e;
+}
+
+input.theme-light {
+    background-color: white;
+    color: black;
+    box-shadow: 5px 5px 10px #b2b2b2;
+}
+
+section.theme-light {
+    background-color: #f0f0f0;
+    color: #2f2e2e;
+}
+
+#Suap-login.theme-light {
+    background-color: #35cd81dc;
+    color: white;
+}
+
+.custom-select.theme-light {
+    background-color: #f0f0f0;
+}
+
+.selected-option.theme-light {
+    color: #2f2e2e;
+}
+
+/* Tema Escuro */
+body.theme-dark {
+    background-color: rgb(150, 148, 148);
+    font-family: Arial;
+    color: white;
+    height: 100vh;
+    transition: 1s ease;
+}
+
+.calc-box.theme-dark {
+    background-color: #686a6b;
+    color: white;
+}
+
+header h1.theme-dark {
+    color: white;
+}
+
+header p.theme-dark {
+    color: white;
+}
+
+input.theme-dark {
+    background-color: #2f2e2e;
+    color: white;
+    box-shadow: 5px 5px 10px #2f2e2e;
+}
+
+section.theme-dark {
+    background-color: #2f2e2e;
+    color: white;
+}
+
+#Suap-login.theme-dark {
+    background-color: #35cd81dc;
+    color: white;
+}
+
+.custom-select.theme-dark {
+    background-color: #2f2e2e;
+}
+
+.selected-option.theme-dark {
+    color: white;
+}
