@@ -146,3 +146,23 @@ span {
 .custom-select.open .options-list {
     display: block;
 }
+.about {
+    position: absolute;
+    top: 30%;
+    background-color: #2f2e2e;
+    width: 20%;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.about p {
+    margin-top: -5px;
+    font-size: 1em;
+    color: #686a6b;
+}
+
+.about h2 {
+    text-align: center;
+    margin-top: -3px;
+}
