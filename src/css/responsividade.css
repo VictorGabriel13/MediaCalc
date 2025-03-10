@@ -29,18 +29,6 @@
         font-weight: 700;
         cursor: pointer;
     }
-    .about {
-        position: absolute;
-        top: 100%;
-        margin-top: 20px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background-color: #2f2e2e;
-        width: 78%;
-        white-space: nowrap;
-        border-radius: 10px;
-        padding: 10px;
-    }
     }
     @media screen and (min-width:720px) and (max-width: 1024px) {
     .calc-box {
