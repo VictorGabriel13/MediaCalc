@@ -27,7 +27,7 @@ function MediaPonderada() {
     MessageTeste.innerHTML = `Nota Final: <strong>${media.toFixed(1)}</strong>`;
 }
 
-function MediaAnual() {
+function MediaAritmetica() {
     let PrimeiroBimestre = document.getElementById("PrimeiroBi").value.trim();
     let SegundoBimestre = document.getElementById("SegundoBi").value.trim();
     let TerceiroBimestre = document.getElementById("TerceiroBi").value.trim();
@@ -112,9 +112,9 @@ function MudarThema(theme) {
         suapLogin.classList.remove('theme-dark');
         customSelect.classList.add('theme-light');
         customSelect.classList.remove('theme-dark');
-    } else if (theme === 'mediaAnual') {
-        selectedOption.textContent = "Média Anual";
-        MediaAnual()
+    } else if (theme === 'mediaAritmetrica') {
+        selectedOption.textContent = "Média Aritmética";
+        MediaAritmetica()
          // Chama a função corretamente
     }
     else if (theme === 'mediaPonderada') {
