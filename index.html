@@ -11,8 +11,10 @@
 <body class="theme-dark">
     <button type="submit" onclick="login()" id="Suap-login">Login com o Suap</button>
     <div class="custom-select" id="theme-selector">
-        <div class="selected-option">Selecione o Tema</div>
+        <div class="selected-option">Configurações</div>
         <div class="options-list">
+            <div class="option" data-value="mediaPonderada">Média Ponderada</div>
+            <div class="option" data-value="mediaAnual">Média Anual</div>
             <div class="option" data-value="dark">Tema Dark</div>
             <div class="option" data-value="light">Tema Light</div>
         </div>
@@ -24,15 +26,15 @@
         </header>
         <div class="container">
             <span>1<strong style="font-size: 25px;">º</strong></span>
-            <input id="PrimeiroBi" oninput="Bimestres()" autocomplete="off"  placeholder="0 a 10" type="number">
+            <input id="PrimeiroBi" oninput="MediaPonderada()" autocomplete="off"  placeholder="0 a 10" type="number">
             <span style="left: 56%;">2<strong style="font-size: 25px;">º</strong></span>
-            <input id="SegundoBi" oninput="Bimestres()" autocomplete="off"  placeholder="0 a 10" type="number">
+            <input id="SegundoBi" oninput="MediaPonderada()" autocomplete="off"  placeholder="0 a 10" type="number">
         </div>
         <div class="container">
             <span>3<strong style="font-size: 25px;">º</strong></span>
-            <input autocomplete="off" id="TerceiroBi" oninput="Bimestres()" placeholder=" 0 a 10" type="number">
+            <input autocomplete="off" id="TerceiroBi" oninput="MediaPonderada()" placeholder=" 0 a 10" type="number">
             <span style="left: 56%;">4<strong style="font-size: 25px;">º</strong></span>
-            <input autocomplete="off" id="QuartoBi"  oninput="Bimestres()" placeholder="0 a 10" type="number">
+            <input autocomplete="off" id="QuartoBi"  oninput="MediaPonderada()" placeholder="0 a 10" type="number">
         </div>
     </div>
     <section>
@@ -71,7 +73,6 @@
               suap.getResource(scope, callback);
           }
       });
-
       function login() {
             window.location.href = suap.getLoginURL();
       }

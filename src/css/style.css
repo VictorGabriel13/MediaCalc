@@ -82,7 +82,7 @@ span {
     border: 0;
     width: 12%;
     position: absolute;
-    left: 85%;
+    left: 87.5%;
     font-size: 17px;
     padding: 10px;
     border-radius: 15px;
@@ -96,7 +96,7 @@ span {
 
 .custom-select {
     position: relative;
-    width: 10%;
+    width: 11%;
     font-family: Arial;
     border-radius: 5px;
     background-color: #2f2e2e;
