@@ -75,7 +75,6 @@ function MudarThema(theme) {
     if (theme === 'dark') {
         body.classList.add('theme-dark');
         body.classList.remove('theme-light');
-        selectedOption.textContent = "Tema Dark";  // Atualiza o texto para "Tema Dark"
         
         // Troca as classes de cada elemento específico
         calcBox.classList.add('theme-dark');
@@ -95,7 +94,6 @@ function MudarThema(theme) {
     } else if (theme === 'light') {
         body.classList.add('theme-light');
         body.classList.remove('theme-dark');
-        selectedOption.textContent = "Tema Light";  // Atualiza o texto para "Tema Light"
         
         // Troca as classes de cada elemento específico
         calcBox.classList.add('theme-light');
