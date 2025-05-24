@@ -4,7 +4,7 @@ function MediaPonderada() {
     let TerceiroBimestre = document.getElementById("TerceiroBi").value.trim();
     let QuartoBimestre = document.getElementById("QuartoBi").value.trim();
     let MessageTeste = document.getElementById("resultado");
-    let MessageReprovado = document.getElementById("Aprovado")
+    let msgAlert = document.getElementById("Aprovado")
 
     // Converter valores para número corretamente
     let num1 = parseFloat(PrimeiroBimestre) || 0;
@@ -15,13 +15,28 @@ function MediaPonderada() {
     // Calcular média ponderada dos alunos
     let media = (num1 * 2 + num2 * 2 + num3 * 3 + num4 * 3) / 10;
 
+    const verificacao = [num1, num2, num3, num4]
+
     // Se a media calculada for menor que 6, Você foi Reprovado.
-    if(media <6) {
-        MessageReprovado.innerHTML ='Reprovado'
+    if(verificacao.some(num => num <0 || num > 10)) { // Verifica se os Números Digitados Está entre 0 a 10;
+        alert('<span>"Coloque Números de 0 a 10."</span>')
+    }else{
+    if(media >0 && media <6) {
+        msgAlert.innerHTML ='Reprovado'
+        MessageTeste.style.color = ' #dc143c'
+        msgAlert.style.color = ' #dc143c'
+    }
+    else if (media > 6) {
+        msgAlert.innerHTML = 'Aprovado'
+        MessageTeste.style.color = ' #0CC77D'
+        msgAlert.style.color = " #0CC77D"
     }
     else {
-        MessageReprovado.innerHTML = 'Aprovado'
+        msgAlert.innerHTML = 'Resultado: '
+        msgAlert.style.color = ' #686A6B'
+        MessageTeste.style.color = ' #686A6B'
     }
+}
 
     // Exibir a média formatada
     MessageTeste.innerHTML = `Nota Final: <strong>${media.toFixed(1)}</strong>`;
@@ -33,7 +48,7 @@ function MediaAritmetica() {
     let TerceiroBimestre = document.getElementById("TerceiroBi").value.trim();
     let QuartoBimestre = document.getElementById("QuartoBi").value.trim();
     let MessageTeste = document.getElementById("resultado");
-    let MessageReprovado = document.getElementById("Aprovado")
+    let msgAlert = document.getElementById("Aprovado")
 
     // Converter valores para número corretamente
     let num1 = parseFloat(PrimeiroBimestre) || 0;
@@ -46,10 +61,10 @@ function MediaAritmetica() {
 
     // Se a media calculada for menor que 6, Você foi Reprovado.
     if(media <6) {
-        MessageReprovado.innerHTML ='Reprovado'
+        msgAlert.innerHTML ='Reprovado'
     }
     else {
-        MessageReprovado.innerHTML = 'Aprovado'
+        msgAlert.innerHTML = 'Aprovado'
     }
 
     // Exibir a média formatada
