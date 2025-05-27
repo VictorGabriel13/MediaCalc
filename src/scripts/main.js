@@ -26,7 +26,7 @@ function MediaPonderada() {
         MessageTeste.style.color = ' #dc143c'
         msgAlert.style.color = ' #dc143c'
     }
-    else if (media > 6) {
+    else if (media >=6) {
         msgAlert.innerHTML = 'Aprovado'
         MessageTeste.style.color = ' #0CC77D'
         msgAlert.style.color = " #0CC77D"
@@ -59,13 +59,28 @@ function MediaAritmetica() {
     // Calcular média ponderada dos alunos
     let media = (num1 + num2 + num3 + num4) / 4;
 
-    // Se a media calculada for menor que 6, Você foi Reprovado.
-    if(media <6) {
+    const verificacao = [num1, num2, num3, num4]
+
+     // Se a media calculada for menor que 6, Você foi Reprovado.
+    if(verificacao.some(num => num <0 || num > 10)) { // Verifica se os Números Digitados Está entre 0 a 10;
+        alert('<span>"Coloque Números de 0 a 10."</span>')
+    }else{
+    if(media >0 && media <6) {
         msgAlert.innerHTML ='Reprovado'
+        MessageTeste.style.color = ' #dc143c'
+        msgAlert.style.color = ' #dc143c'
+    }
+    else if (media >=6) {
+        msgAlert.innerHTML = 'Aprovado'
+        MessageTeste.style.color = ' #0CC77D'
+        msgAlert.style.color = " #0CC77D"
     }
     else {
-        msgAlert.innerHTML = 'Aprovado'
+        msgAlert.innerHTML = 'Resultado: '
+        msgAlert.style.color = ' #686A6B'
+        MessageTeste.style.color = ' #686A6B'
     }
+}
 
     // Exibir a média formatada
     MessageTeste.innerHTML = `Nota Final: <strong>${media.toFixed(1)}</strong>`;
